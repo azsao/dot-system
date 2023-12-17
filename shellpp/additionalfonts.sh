@@ -1,5 +1,12 @@
 #!/bin/bash
 
+LOG_FILE="logs/fonts.log"
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+log() {
+    echo "$(date +"%H:%M:%S"): $1"
+}
+
 # Install MSFonts
 if ! yay -Qi ttf-ms-win10-auto &>/dev/null; then
     log "ttf-ms-win10-auto is not installed. Downloading and installing..."

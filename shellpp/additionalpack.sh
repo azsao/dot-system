@@ -46,11 +46,22 @@ for package in "${packages[@]}"; do
 done
 
 # Install from AUR using yay
+# Install from AUR using makepkg and pacman
 declare -a aur_packages=("zathura" "firefox" "discord" "telegram" "fish")
 for aur_package in "${aur_packages[@]}"; do
     if ! command -v "$aur_package" &>/dev/null; then
         log "$aur_package is not installed. Installing..."
-        yay -S "$aur_package" --noconfirm
+        
+        # Clone AUR package
+        git clone https://aur.archlinux.org/"$aur_package".git
+        cd "$aur_package" || continue
+        
+        # Build and install package
+        makepkg -si --noconfirm
+        
+        cd ..  # Return to the script's directory
+        rm -rf "$aur_package"  # Clean up AUR package directory
+
         log "$aur_package has been installed!"
     else
         log "$aur_package is already installed!"
@@ -61,7 +72,9 @@ done
 log "Downloading and installing Polybar..."
 git clone https://github.com/polybar/polybar
 if [ -d polybar ]; then
-    cd polybar/build || exit
+    cd polybar || exit  # Change into the polybar directory
+    mkdir build
+    cd build || exit
     cmake ..
     make -j$(nproc)
     sudo make install

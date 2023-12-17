@@ -1,15 +1,13 @@
+#!/bin/bash
 
-# Make Font Directories
-mkdir -p ~/.local/share/fonts
-
+USER_HOME=$(getent passwd "$(whoami)" | cut -d: -f6)
 
 # move dot files config
 shopt -s dotglob
-mv ~/dot-system-BETA/config/polybar/* ~/.config/polybar/
-mv ~/dot-system-BETA/config/i3/* ~/.config/i3/
-mv ~/dot-system-BETA/config/rofi/* ~/.config/rofi/
-mv ~/dot-system-BETA/config/picom/* ~/.config/picom/
-mv ~/dot-system-BETA/config/(INSERT SHIT)/* ~/.config/(INSERT SHIT)/
+mv $USER_HOME/dot-system-main/config/polybar/* $USER_HOME/.config/polybar/
+mv $USER_HOME/dot-system-main/config/i3/* $USER_HOME/.config/i3/
+mv $USER_HOME/dot-system-main/config/rofi/* $USER_HOME/.config/rofi/
+mv $USER_HOME/dot-system-main/config/picom/* $USER_HOME/.config/picom/
 shopt -u dotglob
 
 

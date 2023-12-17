@@ -49,13 +49,13 @@ if ! command -v nvim &>/dev/null; then
     sudo pacman -S neovim --noconfirm
     log "NVIM has been installed!"
 
-sleep(5)
+    # sleep command
+    sleep 5
+fi
 
 # Install konsole
-sudo pacman -S -noconfirm konsole
+sudo pacman -S --noconfirm konsole
 
 # Install pipewire + counterparts
 sudo pacman -Syu
-sudo pacman -S -noconfirm pipewire pipewire-pulse pw-volume
-
-log "Script execution completed."
+sudo pacman -S --noconfirm pipewire pipewire-pulse pw-volume
