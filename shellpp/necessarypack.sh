@@ -12,9 +12,6 @@ log "Starting system update..."
 sudo pacman -Syu --noconfirm
 log "System updated. Proceeding..."
 
-# Install jre-openjdk
-sudo pacman -S jre-openjdk 
-
 # Install yay
 if ! command -v yay &>/dev/null; then
     log "yay is not installed. Downloading and installing..."
@@ -44,6 +41,7 @@ if ! command -v nvim &>/dev/null; then
 
 sleep(5)
 
+# Install konsole
 sudo pacman -S -noconfirm konsole
 
 # Install pipewire + counterparts
