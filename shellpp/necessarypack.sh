@@ -15,6 +15,16 @@ log "System updated. Proceeding..."
 # Install yay
 if ! command -v yay &>/dev/null; then
     log "yay is not installed. Downloading and installing..."
+    
+    # Install git if not already installed
+    if ! command -v git &>/dev/null; then
+        log "git is not installed. Installing..."
+        sudo pacman -S --noconfirm git
+        log "git has been installed!"
+    else
+        log "git is already installed!"
+    fi
+    
     git clone https://aur.archlinux.org/yay.git
     cd yay || exit
     makepkg -si --noconfirm
