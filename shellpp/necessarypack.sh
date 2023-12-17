@@ -59,3 +59,12 @@ sudo pacman -S --noconfirm konsole
 # Install pipewire + counterparts
 sudo pacman -Syu
 sudo pacman -S --noconfirm pipewire pipewire-pulse pw-volume
+
+# Install CMake
+if ! command -v cmake &>/dev/null; then
+    log "CMake is not installed. Installing..."
+    sudo pacman -S --noconfirm cmake
+    log "CMake has been installed!"
+else
+    log "CMake is already installed!"
+fi

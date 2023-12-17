@@ -83,6 +83,14 @@ else
     log "Polybar directory not found."
 fi
 
+sleep 5
+
+# Prepare rofi
+
+mkdir -p rofi/build
+cd rofi/build || exit
+
+
 # Install Rofi
 log "Downloading and installing Rofi..."
 git clone https://github.com/davatorium/rofi.git
