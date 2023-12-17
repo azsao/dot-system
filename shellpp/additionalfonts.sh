@@ -38,13 +38,3 @@ mkdir -p ~/.local/share/fonts
 cp "$TEMP_DIR"/*.ttf ~/.local/share/fonts/
 fc-cache -f -v
 rm -r "$TEMP_DIR"
-
-# Install Cascadia-Code (if not already installed)
-
-DOWNLOAD_URL="https://github.com/microsoft/cascadia-code/releases/download/v2105.24/CascadiaCode-2105.24.zip"
-TEMP_DIR=$(mktemp -d)
-wget -O "$TEMP_DIR/CascadiaCode.zip" "$DOWNLOAD_URL"
-unzip "$TEMP_DIR/CascadiaCode.zip" -d "$TEMP_DIR"
-cp "$TEMP_DIR/ttf/"*.ttf ~/.local/share/fonts/
-fc-cache -f -v
-rm -r "$TEMP_DIR"
