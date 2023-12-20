@@ -5,12 +5,14 @@ USER_HOME=$(getent passwd "$(whoami)" | cut -d: -f6)
 
 # Define script paths
 NECESSARY_PACK_SCRIPT="$USER_HOME/dot-system-main/shellpp/necessarypack.sh"
+IMP_SCRIPT="$USER_HOME/dot-system-main/shellpp/imp.sh"
 ADDITIONAL_PACK_SCRIPT="$USER_HOME/dot-system-main/shellpp/additionalpack.sh"
 DIR_SCRIPT="$USER_HOME/dot-system-main/pypacks/dir.sh"
 ADDITIONAL_FONTS_SCRIPT="$USER_HOME/dot-system-main/shellpp/additionalfonts.sh"
 
 # Set execute permissions for scripts
 chmod +x "$NECESSARY_PACK_SCRIPT"
+chmod +x "$IMP_SCRIPT"
 chmod +x "$ADDITIONAL_PACK_SCRIPT"
 chmod +x "$DIR_SCRIPT"
 chmod +x "$ADDITIONAL_FONTS_SCRIPT"
@@ -19,6 +21,9 @@ sleep 5
 
 # Run necessarypack.sh with full path
 "$NECESSARY_PACK_SCRIPT"
+
+# Run imp.sh script
+"$IMP_SCRIPT"
 
 # Prompt user to run additionalpack.sh
 read -p "Do you want to run additionalpack.sh? (Y/N): " choice
