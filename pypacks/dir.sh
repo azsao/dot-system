@@ -8,7 +8,7 @@ USERNAME=$(echo "$USERNAME" | tr -cd '[:alnum:]')
 
 USER_HOME="/home/$USERNAME"
 CONFIG_DIR="$USER_HOME/.config"
-SOURCE_DIR="$USER_HOME/dot-system-main/config"
+SOURCE_DIR="$USER_HOME/dot-system/config"
 LOG_FILE="logs/dir.log"
 
 # Function to create directory if it doesn't exist
