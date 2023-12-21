@@ -189,7 +189,7 @@ exec_always --no-startup-id killall -q polybar
 exec_always --no-startup-id polybar example --config="~/.config/polybar/config.ini"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill "dot-system-main/wallpapers+/leball.png"
+exec_always --no-startup-id feh --bg-fill "~/home/wallpapers/leball.png"
 
 
 # Custom Bindings

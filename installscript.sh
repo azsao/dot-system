@@ -5,6 +5,7 @@ USER_HOME=$(getent passwd "$(whoami)" | cut -d: -f6)
 
 # Define script paths
 NECESSARY_PACK_SCRIPT="$USER_HOME/dot-system-main/shellpp/necessarypack.sh"
+WALLPAPER_SCRIPT="$USER_HOME/dot-system-main/shellpp/wallpaper.sh"
 IMP_SCRIPT="$USER_HOME/dot-system-main/shellpp/imp.sh"
 ADDITIONAL_PACK_SCRIPT="$USER_HOME/dot-system-main/shellpp/additionalpack.sh"
 DIR_SCRIPT="$USER_HOME/dot-system-main/pypacks/dir.sh"
@@ -13,6 +14,7 @@ ADDITIONAL_FONTS_SCRIPT="$USER_HOME/dot-system-main/shellpp/additionalfonts.sh"
 # Set execute permissions for scripts
 chmod +x "$NECESSARY_PACK_SCRIPT"
 chmod +x "$IMP_SCRIPT"
+chmod +x "$WALLPAPER_SCRIPT"
 chmod +x "$ADDITIONAL_PACK_SCRIPT"
 chmod +x "$DIR_SCRIPT"
 chmod +x "$ADDITIONAL_FONTS_SCRIPT"
@@ -21,6 +23,9 @@ sleep 5
 
 # Run necessarypack.sh with full path
 "$NECESSARY_PACK_SCRIPT"
+
+# Run wallpaper.sh
+"$WALLPAPER_SCRIPT"
 
 # Run imp.sh script
 "$IMP_SCRIPT"
