@@ -2,7 +2,7 @@
 
 USER=$(getent passwd "$(whoami)" | cut -d: -f6)
 
-cd "$USER/home/"
+cd "/home"
 mkdir Wallpapers
 
 sleep 2

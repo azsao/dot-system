@@ -12,6 +12,8 @@ log "Starting system update..."
 sudo pacman -Syu --noconfirm
 log "System updated. Proceeding..."
 
+cd /home
+
 # Install yay
 if ! command -v yay &>/dev/null; then
     log "yay is not installed. Downloading and installing..."

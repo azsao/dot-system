@@ -12,6 +12,8 @@ log "Starting system update..."
 sudo pacman -Syu --noconfirm
 log "System updated. Proceeding..."
 
+cd /home
+
 # Install Git
 if ! command -v git &>/dev/null; then
     log "Git is not installed. Installing..."
@@ -69,19 +71,7 @@ for aur_package in "${aur_packages[@]}"; do
 done
 
 # Install Polybar
-log "Downloading and installing Polybar..."
-git clone https://github.com/polybar/polybar
-if [ -d polybar ]; then
-    cd polybar || exit  # Change into the polybar directory
-    mkdir build
-    cd build || exit
-    cmake ..
-    make -j$(nproc)
-    sudo make install
-    log "Polybar installed from GitHub repo."
-else
-    log "Polybar directory not found."
-fi
+sudo pacman -S --noconfirm polybar
 
 sleep 5
 
@@ -112,5 +102,7 @@ if ! command -v flameshot &>/dev/null; then
 else
     log "Flameshot is already installed!"
 fi
+
+sudo pacman -S rofi
 
 log "Script execution completed."

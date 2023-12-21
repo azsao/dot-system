@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home
+
 LOG_FILE="logs/fonts.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
