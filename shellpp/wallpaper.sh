@@ -2,11 +2,10 @@
 
 USER=$(getent passwd "$(whoami)" | cut -d: -f6)
 
-cd $USER/home/
+cd "$USER/home/"
 mkdir Wallpapers
-
 
 sleep 2
 
-WALL_MD= ${USER}/home/wallpaper+
-mv ${USER}/dot-system-main/wallpapers+ ${USER}/home/wallpaper+
+WALL_MD="${USER}/home/Wallpapers"
+mv "${USER}/dot-system-main/wallpapers+" "$WALL_MD"
